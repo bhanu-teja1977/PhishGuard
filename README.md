@@ -110,7 +110,7 @@ Evaluation was performed on a stratified held-out test set.
                  │ Interactive Web Dashboard│
                  └─────────────────────────┘
 ```
-🔬 How PhishGuard Works
+**🔬 How PhishGuard Works**
 1. URL Input
 The user enters a URL through the web interface.
 Example:
@@ -179,7 +179,8 @@ This provides:
 - Reduced interaction with potentially malicious websites
 - A simpler analysis workflow
 However, restricting the system to URL-derived characteristics means that information available from webpage content, HTML, JavaScript, traffic, or external reputation systems is not available to the live model.
-#🤖 Machine Learning Pipeline
+
+🤖 Machine Learning Pipeline
 ```text
 Dataset
    │
@@ -254,7 +255,8 @@ Testing
 - Frontend build verification
 - End-to-end API testing
 - Responsive UI testing
-#📁 Project Structure
+
+📁 Project Structure
 ```text
 PHISHGUARD/
 │
@@ -308,6 +310,7 @@ PHISHGUARD/
 ├── PROJECT_STATUS.md
 └── .gitignore
 ```
+
 🚀 Getting Started
 Prerequisites
 Make sure you have installed:
@@ -404,6 +407,7 @@ LightGBM	92.0%	0.921	0.973
 
 
 LightGBM was selected for deployment using the project's documented combined F1 and ROC-AUC criterion.
+
 🔐 Security & Scope
 PhishGuard is designed as a URL analysis system.
 It does not:
