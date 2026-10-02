@@ -109,7 +109,7 @@ Evaluation was performed on a stratified held-out test set.
                  ┌─────────────────────────┐
                  │ Interactive Web Dashboard│
                  └─────────────────────────┘
-
+```
 🔬 How PhishGuard Works
 1. URL Input
 The user enters a URL through the web interface.
