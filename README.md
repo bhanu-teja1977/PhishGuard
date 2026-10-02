@@ -107,16 +107,19 @@ Evaluation was performed on a stratified held-out test set.
                               │
                               ▼
                  ┌─────────────────────────┐
-                 │ Interactive Web Dashboard│
+                 │Interactive Web Dashboard│
                  └─────────────────────────┘
 ```
-**🔬 How PhishGuard Works**
+# 🔬 How PhishGuard Works
+
 1. URL Input
+
 The user enters a URL through the web interface.
 Example:
 https://example.com/login
 
 2. Feature Extraction
+
 The system extracts structural and lexical characteristics directly from the URL.
 The deployed URL-only pipeline uses 26 features, including:
 - Number of dots
@@ -145,10 +148,14 @@ The deployed URL-only pipeline uses 26 features, including:
 - Double slash in path
 - Sensitive words
 - Embedded brand name
+  
 3. Machine Learning Prediction
+   
 The extracted feature vector is passed to the trained LightGBM model.
 The model produces a probability associated with the phishing class.
+
 4. Risk Scoring
+   
 The phishing probability is converted into an integer risk score between 0 and 100.
 ```text
 Phishing Probability
@@ -158,9 +165,12 @@ Risk Scoring Engine
 0 ─────────────── 100
 Low             Critical
 ```
+
 5. Explainability
+
 SHAP is used to explain the individual prediction.
 The interface shows which features contributed toward phishing and which contributed toward a legitimate classification.
+
 📚 Dataset
 PhishGuard was developed using the Phishing_Legitimate_full.csv dataset.
 Dataset Characteristics
@@ -215,6 +225,7 @@ LightGBM Deployment
 SHAP Explainability
 ```
 🧠 Explainable AI
+
 A key objective of PhishGuard is to make predictions easier to understand.
 Instead of displaying only:
 Phishing
@@ -230,16 +241,19 @@ Important Factors:
 
 The factors shown by the application are generated from the model's actual SHAP contributions rather than manually hardcoded explanations.
 💻 Technology Stack
+
 Frontend
 - React
 - TypeScript
 - Next.js
 - CSS
 - Responsive UI
+  
 Backend
 - Python
 - FastAPI
 - Uvicorn
+  
 Machine Learning
 - LightGBM
 - XGBoost
@@ -247,9 +261,11 @@ Machine Learning
 - Logistic Regression
 - Scikit-learn
 - SHAP
+
 Data Processing
 - Pandas
 - NumPy
+  
 Testing
 - Pytest
 - Frontend build verification
@@ -320,17 +336,19 @@ Make sure you have installed:
 - Git
 1. Clone the Repository
 git clone https://github.com/bhannu-teja1977/PhishGuard.git
+
 cd PhishGuard
 
 ⚙️ Backend Setup
-Create and activate a virtual environment.
-Windows
-python -m venv venv
-venv\Scripts\activate
+- Create and activate a virtual environment.
+- Windows
+- python -m venv venv
+- venv\Scripts\activate
 
 Linux / macOS
-python3 -m venv venv
-source venv/bin/activate
+
+- python3 -m venv venv
+- source venv/bin/activate
 
 Install backend dependencies:
 pip install -r backend/requirements.txt
@@ -354,12 +372,13 @@ Open:
 http://localhost:3000
 
 🔌 API Endpoints
-Method	Endpoint	Description
-GET	/api/health	Backend health check
-POST	/api/analyze	Analyze a URL
-GET	/api/models	Model information
-GET	/api/metrics	Model evaluation metrics
-GET	/api/dataset	Dataset information
+
+- Method	Endpoint	Description
+- GET	/api/health	Backend health check
+- POST	/api/analyze	Analyze a URL
+- GET	/api/models	Model information
+- GET	/api/metrics	Model evaluation metrics
+- GET	/api/dataset	Dataset information
 
 
 Analyze URL
@@ -377,6 +396,7 @@ The response contains information including:
 - Risk level
 - Extracted URL characteristics
 - Explainability factors
+  
 🧪 Testing
 Run backend tests:
 pytest tests/backend
@@ -396,30 +416,41 @@ The project includes tests covering:
 - API behavior
 - Input validation
 - Frontend/backend integration
+
 📊 Model Evaluation
+
 The models were evaluated using a stratified 80/20 train-test split.
+
 Results
-Model	Accuracy	F1	ROC-AUC
-Logistic Regression	84.8%	0.851	0.923
-Random Forest	91.0%	0.912	0.968
-XGBoost	91.8%	0.920	0.973
-LightGBM	92.0%	0.921	0.973
+
+- Model	Accuracy	F1	ROC-AUC
+- Logistic Regression	84.8%	0.851	0.923
+- Random Forest	91.0%	0.912	0.968
+- XGBoost	91.8%	0.920	0.973
+- LightGBM	92.0%	0.921	0.973
 
 
 LightGBM was selected for deployment using the project's documented combined F1 and ROC-AUC criterion.
 
 🔐 Security & Scope
+
 PhishGuard is designed as a URL analysis system.
+
 It does not:
 - Visit the submitted website
 - Execute webpage JavaScript
 - Scrape webpage HTML
 - Download website content
 - Perform live external reputation lookups
+
 The system therefore evaluates the URL based on characteristics available directly from the submitted string.
+
 ⚠️ Limitations
+
 PhishGuard should be treated as a machine-learning-based risk assessment tool, not an absolute security authority.
+
 Important limitations include:
+
 1. URL-only analysis
    Website content, JavaScript, page structure, certificates, traffic information, and external reputation signals are not analyzed.
 2. False positives and false negatives
@@ -432,6 +463,7 @@ Important limitations include:
    The system does not query external threat-intelligence databases during analysis.
 6. Risk thresholds
    The application's Low/Moderate/High/Critical ranges are visualization thresholds and should not be interpreted as universally validated security standards.
+   
 🛣️ Future Improvements
 Potential extensions include:
 - 🌐 Webpage-content analysis
@@ -444,17 +476,25 @@ Potential extensions include:
 - 🧠 Advanced ensemble and calibration techniques
 - 📈 Continuous monitoring and historical risk tracking
 These capabilities are outside the current URL-only implementation.
+
 🎯 Project Objective
+
 The primary objective of PhishGuard is to demonstrate how machine learning and explainable AI can be combined to create a phishing URL analysis system that goes beyond a simple binary prediction.
+
 The system focuses on three core principles:
+```text
+
 Detection
     +
 Risk Quantification
     +
 Explainability
+```
 
 📸 Application
+
 The application provides dedicated interfaces for:
+
 - 🏠 Home
 - 🔎 URL Analyzer
 - 📊 Prediction Results
@@ -462,9 +502,15 @@ The application provides dedicated interfaces for:
 - ⚙️ How It Works
 - 📚 Research & Dataset
 - 👨‍💻 About
+  
 👨‍💻 Authors
+
 PhishGuard Project Team
+
 Developed as a machine learning and explainable AI project.
+
 📄 License
+
 This project is intended for educational and research purposes.
+
 Please review the licensing and dataset terms applicable to the individual components and source dataset before redistribution or commercial use.
