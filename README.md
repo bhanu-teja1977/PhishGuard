@@ -150,13 +150,14 @@ The extracted feature vector is passed to the trained LightGBM model.
 The model produces a probability associated with the phishing class.
 4. Risk Scoring
 The phishing probability is converted into an integer risk score between 0 and 100.
+```text
 Phishing Probability
         ↓
 Risk Scoring Engine
         ↓
 0 ─────────────── 100
 Low             Critical
-
+```
 5. Explainability
 SHAP is used to explain the individual prediction.
 The interface shows which features contributed toward phishing and which contributed toward a legitimate classification.
@@ -178,7 +179,7 @@ This provides:
 - Reduced interaction with potentially malicious websites
 - A simpler analysis workflow
 However, restricting the system to URL-derived characteristics means that information available from webpage content, HTML, JavaScript, traffic, or external reputation systems is not available to the live model.
-🤖 Machine Learning Pipeline
+#🤖 Machine Learning Pipeline
 ```text
 Dataset
    │
@@ -253,7 +254,8 @@ Testing
 - Frontend build verification
 - End-to-end API testing
 - Responsive UI testing
-📁 Project Structure
+#📁 Project Structure
+```text
 PHISHGUARD/
 │
 ├── frontend/
@@ -305,7 +307,7 @@ PHISHGUARD/
 ├── README.md
 ├── PROJECT_STATUS.md
 └── .gitignore
-
+```
 🚀 Getting Started
 Prerequisites
 Make sure you have installed:
