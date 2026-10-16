@@ -505,7 +505,7 @@ The application provides dedicated interfaces for:
   
 👨‍💻 Authors
 
-PhishGuard Project Team
+Bhanu Teja
 
 Developed as a machine learning and explainable AI project.
 
